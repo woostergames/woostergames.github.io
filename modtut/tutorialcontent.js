@@ -1,4 +1,4 @@
-const TUTORIAL_HTML = `
+const PAGE_HTML = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
