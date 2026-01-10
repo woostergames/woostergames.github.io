@@ -61,7 +61,7 @@ h2 {
 </header>
 
 <nav>
-<a href="https://cold-na-phx-7.gofile.io/download/web/194f9f72-c25a-433e-834a-486da19e8f7f/Certs-Khoindvn%202.zip" target="_blank">Certs</a>
+<a href="https://gofile.io/d/3VZAYi" target="_blank">Requirements</a>
 </nav>
 <nav>
 <a href="https://api.khoindvn.eu.org/k1Ycos" target="_blank">Esign</a>
