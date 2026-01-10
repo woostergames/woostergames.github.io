@@ -1,29 +1,13 @@
-// decryptmethod.js
-
-const SECRET_KEY = 731; // arbitrary internal key
-
-function encrypt(input) {
-  let key = SECRET_KEY;
-  let out = [];
-
-  for (let i = 0; i < input.length; i++) {
-    const code = input.charCodeAt(i);
-    const encrypted = (code ^ (key + i)) + (key % 97);
-    out.push(encrypted);
-    key = (key * 13 + encrypted) % 10000;
+function encrypt(str) {
+  let key = 91
+  let out = ""
+  for (let i = 0; i < str.length; i++) {
+    let v = str.charCodeAt(i)
+    v = (v ^ key) + (i * 7)
+    key = (key + v) % 256
+    out += v.toString(16)
   }
-
-  return out;
+  return out
 }
 
-function compareEncrypted(input, encryptedTarget) {
-  const encryptedInput = encrypt(input);
-
-  if (encryptedInput.length !== encryptedTarget.length) return false;
-
-  for (let i = 0; i < encryptedTarget.length; i++) {
-    if (encryptedInput[i] !== encryptedTarget[i]) return false;
-  }
-
-  return true;
-}
+const STORED_KEY = "3ef6fcfa10310710a123111e2111f2114"
