@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locked</title>
+<style>
+body {
+  margin: 0;
+  background: #121212;
+  color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+#lock {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+}
+input {
+  padding: 10px;
+  width: 220px;
+  margin-bottom: 10px;
+  background: #222;
+  color: #fff;
+  border: none;
+}
+button {
+  padding: 10px 20px;
+  background: #ff0050;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#error {
+  color: red;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<div id="lock">
+  <div class="box">
+    <h2>Enter Password</h2>
+    <input id="pw" type="password">
+    <br>
+    <button onclick="unlock()">Unlock</button>
+    <div id="error"></div>
+  </div>
+</div>
+
+<div id="content"></div>
+
+<script src="decryptmethod.js"></script>
+<script src="tutorialcontent.js"></script>
+
+<script>
+function unlock() {
+  const input = document.getElementById("pw").value
+  const enc = encrypt(input)
+  if (enc === STORED_KEY) {
+    document.getElementById("lock").remove()
+    document.getElementById("content").innerHTML = TUTORIAL_HTML
+  } else {
+    document.getElementById("error").textContent = "Wrong password"
+  }
+}
+</script>
+
+</body>
+</html>
