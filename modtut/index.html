@@ -40,10 +40,6 @@ button {
   border: none;
   cursor: pointer;
 }
-#error {
-  color: red;
-  margin-top: 10px;
-}
 </style>
 </head>
 
@@ -54,36 +50,14 @@ button {
     <h2>Enter Password</h2>
     <input id="pw" type="password" autocomplete="off">
     <br>
-    <button id="unlockBtn">Unlock</button>
-    <div id="error"></div>
+    <button onclick="unlock()">Unlock</button>
   </div>
 </div>
 
 <div id="content"></div>
 
-<script src="decryptmethod.js"></script>
-<script src="tutorialcontent.js"></script>
-
-<script>
-document.getElementById("unlockBtn").addEventListener("click", unlock)
-
-function unlock() {
-  if (typeof encrypt !== "function" || typeof STORED_KEY === "undefined") {
-    document.getElementById("error").textContent = "Security module not loaded"
-    return
-  }
-
-  const input = document.getElementById("pw").value
-  const enc = encrypt(input)
-
-  if (enc === STORED_KEY) {
-    document.getElementById("lock").remove()
-    document.getElementById("content").innerHTML = TUTORIAL_HTML || ""
-  } else {
-    document.getElementById("error").textContent = "Wrong password"
-  }
-}
-</script>
+<script defer src="decryptmethod.js"></script>
+<script defer src="tutorialcontent.js"></script>
 
 </body>
 </html>
