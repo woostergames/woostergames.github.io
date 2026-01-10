@@ -1,13 +1,19 @@
-function encrypt(str) {
-  let key = 91
-  let out = ""
-  for (let i = 0; i < str.length; i++) {
-    let v = str.charCodeAt(i)
-    v = (v ^ key) + (i * 7)
-    key = (key + v) % 256
-    out += v.toString(16)
+function encrypt(s) {
+  let r = ""
+  for (let i = 0; i < s.length; i++) {
+    r += (s.charCodeAt(i) ^ 23).toString(16)
   }
-  return out
+  return r
 }
 
 const STORED_KEY = "3ef6fcfa10310710a123111e2111f2114"
+
+function unlock() {
+  const input = document.getElementById("pw").value
+  if (encrypt(input) === STORED_KEY) {
+    document.getElementById("lock").style.display = "none"
+    document.getElementById("content").innerHTML = PAGE_HTML
+  } else {
+    alert("Wrong password")
+  }
+}
