@@ -60,9 +60,7 @@ button {
 <script>
 function unlock() {
   if (checkCode(document.getElementById("code").value)) {
-    document.open()
-    document.write(PAGE_HTML)
-    document.close()
+    document.documentElement.innerHTML = PAGE_HTML
   } else {
     document.getElementById("error").textContent = "Wrong code"
   }
