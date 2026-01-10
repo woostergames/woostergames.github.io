@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Locked</title>
+
 <style>
 body {
   margin: 0;
@@ -45,14 +46,15 @@ button {
 }
 </style>
 </head>
+
 <body>
 
 <div id="lock">
   <div class="box">
     <h2>Enter Password</h2>
-    <input id="pw" type="password">
+    <input id="pw" type="password" autocomplete="off">
     <br>
-    <button onclick="unlock()">Unlock</button>
+    <button id="unlockBtn">Unlock</button>
     <div id="error"></div>
   </div>
 </div>
@@ -63,12 +65,20 @@ button {
 <script src="tutorialcontent.js"></script>
 
 <script>
+document.getElementById("unlockBtn").addEventListener("click", unlock)
+
 function unlock() {
+  if (typeof encrypt !== "function" || typeof STORED_KEY === "undefined") {
+    document.getElementById("error").textContent = "Security module not loaded"
+    return
+  }
+
   const input = document.getElementById("pw").value
   const enc = encrypt(input)
+
   if (enc === STORED_KEY) {
     document.getElementById("lock").remove()
-    document.getElementById("content").innerHTML = TUTORIAL_HTML
+    document.getElementById("content").innerHTML = TUTORIAL_HTML || ""
   } else {
     document.getElementById("error").textContent = "Wrong password"
   }
