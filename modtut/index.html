@@ -3,69 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Locked</title>
+<title>Animal Company Modding Tutorial</title>
 <style>
 body {
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#121212;
-  color:#f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #121212;
+  color: #f0f0f0;
 }
-#lock {
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+header {
+  background: #ff0050;
+  padding: 20px;
+  text-align: center;
 }
-#box {
-  background:#1e1e1e;
-  padding:20px;
-  border-radius:8px;
-  width:100%;
-  max-width:420px;
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #fff;
 }
-input,button {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  font-size:16px;
-  border-radius:6px;
-  border:none;
+nav {
+  text-align: center;
+  margin: 20px 0;
 }
-button {
-  background:#1db954;
-  color:#fff;
-  font-weight:bold;
+nav a {
+  text-decoration: none;
+  background: #1db954;
+  color: #fff;
+  padding: 12px 24px;
+  margin: 0 12px;
+  border-radius: 6px;
+  font-weight: bold;
 }
-#error {
-  margin-top:10px;
-  color:#ff5555;
+section {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+h2 {
+  color: #ff0050;
+  border-bottom: 2px solid #ff0050;
+  padding-bottom: 8px;
+}
+.footer {
+  text-align: center;
+  padding: 12px;
+  background: #222;
+  color: #888;
 }
 </style>
 </head>
 <body>
 
-<div id="lock">
-  <div id="box">
-    <h2>Enter Code</h2>
-    <input id="code" placeholder="Enter code">
-    <button onclick="unlock()">Unlock</button>
-    <div id="error"></div>
-  </div>
-</div>
+<header>
+<h1>ERROR</h1>
+</header>
 
-<script src="decryptmethod.js"></script>
-<script src="page_html.js"></script>
-<script>
-function unlock() {
-  if (checkCode(document.getElementById("code").value)) {
-    document.documentElement.innerHTML = PAGE_HTML
-  } else {
-    document.getElementById("error").textContent = "Wrong code"
-  }
-}
-</script>
+<nav>
+<a href="https://discord.gg/actools" target="_blank">JOIN LACKSONS DISCORD TO BUY</a>
+</nav>
+<section>
+<h2>Error</h2>
+<p>The mod menu has become offically paid now. it has way more features tho!</p>
+</section>
+
+
+
+<div class="footer">
+<p>&copy; 2026 EvanBlokEnder</p>
+</div>
 
 </body>
 </html>
